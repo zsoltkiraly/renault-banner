@@ -1,0 +1,84 @@
+@-webkit-keyframes wheel {
+    0% { @include rotate(360deg); }
+    100% { @include rotate(0deg); }
+}
+
+@keyframes wheel {
+    0% { @include rotate(360deg); }
+    100% { @include rotate(0deg); }
+}
+
+section.renault-banner {
+    @include full-block();
+
+    margin: 50px 0;
+
+    .logo {
+        max-width: 1080px;
+        margin: 0 auto 20px;
+        text-align: left;
+
+        @include full-block();
+
+        img {
+            width: 170px;
+            height: 54px;
+        }
+    }
+
+    .renault-bg {
+        max-width: 1080px;
+        margin: 0 auto;
+        height: 520px;
+        overflow: hidden;
+        border: 2px solid #ffcc33;
+        background-image: url(../images/bg.jpg);
+        background-repeat: no-repeat;
+        background-position: top center;
+
+        @include full-block();
+
+        .renault-content {
+            position: absolute;
+            display: inline-block;
+            width: 600px;
+            height: 245px;
+            top: 145px;
+            right: -600px;
+            z-index: 1;
+        }
+
+        .renault {
+            position: relative;
+            display: block;
+            width: 600px;
+            height: 237px;
+            vertical-align: top;
+            top: 0;
+            background-image: url(../images/renault.png);
+            background-repeat: no-repeat;
+
+        }
+        .wheel-front,
+        .wheel-back {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url(../images/wheel.png);
+            background-repeat: no-repeat;
+            z-index: 2;
+        }
+
+        .wheel-front { left: 50px; }
+        .wheel-back { left: 462px; }
+    }
+
+    .renault-content.rotating .wheel {
+        @include animation(wheel 2s ease-out infinite);
+    }
+
+    .renault-content.rotating.slow .wheel {
+        @include animation(wheel 2s ease-in infinite);
+    }
+}
