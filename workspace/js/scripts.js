@@ -1,10 +1,9 @@
-'use scrict'
-
 /*
 Renault - Code by Zsolt Király
 v1.0.1 - 2018-06-25
 */
 
+'use scrict'
 var renault = function() {
     
     var starttime;
